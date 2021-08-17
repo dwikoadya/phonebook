@@ -1,11 +1,11 @@
 const GraphQLNonNull = require("graphql").GraphQLNonNull;
 const GraphQLString = require("graphql").GraphQLString;
 const GraphQLID = require("graphql").GraphQLID;
-const UserType = require("../types/user");
+const ContactType = require("../types/contact");
 const services = require("../../services");
 
 exports.add = {
-  type: UserType.userType,
+  type: ContactType.contactType,
   args: {
     id: {
       type: new GraphQLNonNull(GraphQLID),
@@ -18,6 +18,6 @@ exports.add = {
     },
   },
   resolve(root, params) {
-    return services.createUser(params);
+    return services.createContact(params);
   },
 };

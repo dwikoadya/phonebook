@@ -3,8 +3,8 @@ const GraphQLNonNull = require('graphql').GraphQLNonNull
 const GraphQLID = require('graphql').GraphQLID
 const GraphQLString = require('graphql').GraphQLString
 
-exports.userType = new GraphQLObjectType({
-  name: 'user',
+exports.contactType = new GraphQLObjectType({
+  name: 'contact',
   fields: function() {
     return {
       id: {

@@ -31,12 +31,12 @@ app.use("*", cors());
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 
-const userSchema = require("./graphql").userSchema;
+const contactSchema = require("./graphql").contactSchema;
 app.use(
   "/graphql",
   cors(),
   graphqlHTTP({
-    schema: userSchema,
+    schema: contactSchema,
     rootValue: global,
     graphiql: true,
   })

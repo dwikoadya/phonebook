@@ -1,9 +1,9 @@
-const addUser = require("./add").add;
-const updateUser = require("./update").update;
-const removeUser = require("./remove").remove;
+const addContact = require("./add").add;
+const updateContact = require("./update").update;
+const removeContact = require("./remove").remove;
 
 module.exports = {
-  addUser,
-  updateUser,
-  removeUser,
+  addContact,
+  updateContact,
+  removeContact,
 };

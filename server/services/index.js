@@ -1,9 +1,9 @@
 const firebase = require("firebase");
 
-const getUsers = () => {
-  const userReference = firebase.database().ref("/Phones");
+const getContacts = () => {
+  const contactReference = firebase.database().ref("/Phones");
   return new Promise((resolve, reject) => {
-    userReference.on(
+    contactReference.on(
       "value",
       function (snapshot) {
         const folders = snapshot.val();
@@ -15,7 +15,7 @@ const getUsers = () => {
           );
           resolve(data);
         }
-        userReference.off("value");
+        contactReference.off("value");
       },
       (errorObject) => {
         console.log(`The read failed: ${errorObject.code}`);
@@ -25,49 +25,49 @@ const getUsers = () => {
   });
 };
 
-const createUser = (user) => {
-  const referencePath = `/Phones/${user.id}`;
-  const userReference = firebase.database().ref(referencePath);
+const createContact = (contact) => {
+  const referencePath = `/Phones/${contact.id}`;
+  const contactReference = firebase.database().ref(referencePath);
   return new Promise((resolve, reject) => {
-    userReference.set({ Name: user.Name, Phone: user.Phone }, (error) => {
+    contactReference.set({ Name: contact.Name, Phone: contact.Phone }, (error) => {
       if (error) {
         reject(`Data could not be created ${error}`);
       } else {
-        resolve(user);
+        resolve(contact);
       }
     });
   });
 };
 
-const updateUser = (user) => {
-  const referencePath = `/Phones/${user.id}`;
-  const userReference = firebase.database().ref(referencePath);
+const updateContact = (contact) => {
+  const referencePath = `/Phones/${contact.id}`;
+  const contactReference = firebase.database().ref(referencePath);
   return new Promise((resolve, reject) => {
-    userReference.update(
-      { Name: user.Name, Phone: user.Phone },
+    contactReference.update(
+      { Name: contact.Name, Phone: contact.Phone },
       (error) => {
         if (error) {
           reject(`Data could not be updated ${error}`);
         } else {
-          resolve(user);
+          resolve(contact);
         }
       }
     );
   });
 };
 
-const deleteUser = (user) => {
-  const referencePath = `/Phones/${user.id}`;
-  const userReference = firebase.database().ref(referencePath);
+const deleteContact = (contact) => {
+  const referencePath = `/Phones/${contact.id}`;
+  const  contactReference = firebase.database().ref(referencePath);
   return new Promise((resolve, reject) => {
-    userReference.remove((error) => {
+    contactReference.remove((error) => {
       if (error) {
         reject(`Data could not be deleted ${error}`);
       } else {
-        resolve(user);
+        resolve(contact);
       }
     });
   });
 };
 
-module.exports = { getUsers, createUser, updateUser, deleteUser };
+module.exports = { getContacts, createContact, updateContact, deleteContact };

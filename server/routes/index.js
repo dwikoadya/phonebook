@@ -4,14 +4,14 @@ var firebase = require("firebase");
 
 //Fetch Instances
 router.get("/", function (req, res) {
-  const userReference = firebase.database().ref("/Phones");
+  const contactReference = firebase.database().ref("/Phones");
   //Attach an asynchronous callback to read the data
-  userReference.on(
+  contactReference.on(
     "value",
     function (snapshot) {
       console.log(snapshot.val());
       res.json(snapshot.val());
-      userReference.off("value");
+      contactReference.off("value");
     },
     function (errorObject) {
       console.log(`The read failed: ${errorObject.code}`)
@@ -42,8 +42,8 @@ router.put("/:id", function (req, res) {
   var phone = req.body.phone;
 
   var referencePath = `/Phones/${id}/`;
-  var userReference = firebase.database().ref(referencePath);
-  userReference.update({ Name: name, Phone: phone }, function (error) {
+  var contactReference = firebase.database().ref(referencePath);
+  contactReference.update({ Name: name, Phone: phone }, function (error) {
     if (error) {
       res.send(`Data could not be updated. ${error}`);
     } else {
@@ -55,8 +55,8 @@ router.put("/:id", function (req, res) {
 router.delete("/:id", function (req, res) {
   var id = req.params.id;
   var referencePath = `/Phones/${id}/`;
-  var userReference = firebase.database().ref(referencePath)
-  userReference.remove((error) => {
+  var contactReference = firebase.database().ref(referencePath)
+  contactReference.remove((error) => {
     if (error) {
       res.send(`Data could not be deleted. ${error}`)
     } else {
