@@ -4,10 +4,96 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
+  background-image: url(phone.jpg);
+  background-size: cover;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.jumbotron {
+  margin-top: -90px;
+  color: white;
+  background-color: rgba(0,0,0,0.6);
+  background-size: cover;
+  height: 250px;
+  text-align: center;
+  position: relative;
+}
+
+.jumbotron .containers {
+  z-index: 1;
+  position: relative;
+}
+
+.jumbotron::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+  position: absolute;
+  bottom: 0
+}
+
+.jumbotron .display-4 {
+  color: white;
+  font-family: Playfair Display, serif;
+  margin-top: 40px;
+  font-weight: 300;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+  font-size: 90px;
+  margin-bottom: 30px;
+}
+
+.navbar {
+  position: relative;
+  z-index: 1;
+}
+
+.navbar-brand {
+  margin-left: 30px;
+  font-family: viga;
+  font-size: 37px;
+  color: #fff !important;
+}
+
+.table-wrapper {
+  width: 100%;
+  margin: auto;
+  background: rgb(238, 238, 238);
+  padding: 10px;
+  box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.3);
+  border-radius: 20px;
+}
+
+.containers p {
+  margin-top: -180px;
+  margin-left: 50px;
+  color: rgb(172, 172, 172)
+}
+
+.add {
+  margin-top: -50px;
+  margin-left: -530px;
+  position: absolute;
+}
+
+.del {
+  margin: 5px;
+}
+
+.centering {
+  text-align: center;
+}
+
+.addc {
+  margin: 5px;
+}
+
+.reset {
+  margin-right: 100px;
 }
