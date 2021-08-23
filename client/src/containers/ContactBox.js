@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Jumbotron from '../components/layout/Jumbotron'
-import AddContact from '../components/form/AddContact'
 import ContactList from './ContactList'
-
+import AddContact from '../components/form/AddContact'
+import SearchContact from '../components/form/SearchContact'
+import Pagination from '../components/Pagination'
 class ContactBox extends Component {
   render() {
     return (
@@ -16,10 +17,12 @@ class ContactBox extends Component {
                 <div className="card-body">
                   {this.props.stateFromMaps && <AddContact />}
                   <br />
+                  <SearchContact />
                 </div>
                 <div className="card-body">
                   <ContactList />
                 </div>
+                <Pagination />
               </div>
             </div>
           </div>
