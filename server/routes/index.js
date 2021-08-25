@@ -26,8 +26,8 @@ router.post("/", function (req, res) {
   const { name, phone } = req.body;
 
   const referencePath = "/Phones/" + id + "/";
-  const userReference = firebase.database().ref(referencePath);
-  userReference.set({ Name: name, Phone: phone }, function (error) {
+  const contactReference = firebase.database().ref(referencePath);
+  contactReference.set({ Name: name, Phone: phone }, function (error) {
     if (error) {
       res.send(`Data could not be saved. ${error}`)
     } else {

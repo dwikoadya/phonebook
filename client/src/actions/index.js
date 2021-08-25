@@ -9,10 +9,9 @@ const client = new ApolloClient({
 });
 
 //Start Load Data
-export const loadContactSuccess = ({ result, items }) => ({
+export const loadContactSuccess = (phones) => ({
   type: "LOAD_CONTACT_SUCCESS",
-  result,
-  items,
+  phones,
 });
 
 export const loadContactFailure = () => ({

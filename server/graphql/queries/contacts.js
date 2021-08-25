@@ -7,7 +7,7 @@ exports.queryType = new GraphQLObjectType({
   name: "Query",
   fields: function () {
     return {
-      Phones: {
+      phones: {
         type: new GraphQLList(contactType),
         resolve: services.getContacts,
       },

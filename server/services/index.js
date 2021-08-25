@@ -26,16 +26,19 @@ const getContacts = () => {
 };
 
 const createContact = (contact) => {
-  const referencePath = `/Phones/${contact.id}`;
+  const referencePath = `/Phones/${contact.id}/`;
   const contactReference = firebase.database().ref(referencePath);
   return new Promise((resolve, reject) => {
-    contactReference.set({ Name: contact.Name, Phone: contact.Phone }, (error) => {
-      if (error) {
-        reject(`Data could not be created ${error}`);
-      } else {
-        resolve(contact);
+    contactReference.set(
+      { Name: contact.Name, Phone: contact.Phone },
+      (error) => {
+        if (error) {
+          reject(`Data could not be created ${error}`);
+        } else {
+          resolve(contact);
+        }
       }
-    });
+    );
   });
 };
 
@@ -58,7 +61,7 @@ const updateContact = (contact) => {
 
 const deleteContact = (contact) => {
   const referencePath = `/Phones/${contact.id}`;
-  const  contactReference = firebase.database().ref(referencePath);
+  const contactReference = firebase.database().ref(referencePath);
   return new Promise((resolve, reject) => {
     contactReference.remove((error) => {
       if (error) {
